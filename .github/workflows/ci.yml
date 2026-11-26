@@ -9,8 +9,10 @@ on:
 jobs:
   test:
     name: Python Automated Tests
-
     runs-on: ubuntu-latest
+
+    env:
+      PYTHON_VERSION: '3.12'
 
     steps:
       - name: Checkout repository
@@ -19,7 +21,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: ${{ env.PYTHON_VERSION }}
 
       - name: Install pytest
         run: pip install pytest
