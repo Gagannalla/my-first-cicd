@@ -1,1 +1,21 @@
 
+name: Reusable Build Workflow
+
+on:
+  workflow_call:
+
+jobs:
+  build:
+    name: Reusable Build Job
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Display build information
+        run: |
+          echo "Reusable workflow is running."
+          echo "Repository: $GITHUB_REPOSITORY"
+          echo "Branch: $GITHUB_REF_NAME"
+
